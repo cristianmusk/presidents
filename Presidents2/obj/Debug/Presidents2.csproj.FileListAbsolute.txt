@@ -1,0 +1,7 @@
+C:\Users\crist\source\repos\Presidents2\Presidents2\bin\Debug\Presidents2.exe.config
+C:\Users\crist\source\repos\Presidents2\Presidents2\bin\Debug\Presidents2.exe
+C:\Users\crist\source\repos\Presidents2\Presidents2\bin\Debug\Presidents2.pdb
+C:\Users\crist\source\repos\Presidents2\Presidents2\obj\Debug\Presidents2.csprojAssemblyReference.cache
+C:\Users\crist\source\repos\Presidents2\Presidents2\obj\Debug\Presidents2.csproj.CoreCompileInputs.cache
+C:\Users\crist\source\repos\Presidents2\Presidents2\obj\Debug\Presidents2.exe
+C:\Users\crist\source\repos\Presidents2\Presidents2\obj\Debug\Presidents2.pdb
