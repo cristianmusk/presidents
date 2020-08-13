@@ -1,9 +1,5 @@
 ﻿using Cards.Domain.Standard;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Presidents2
 {
@@ -22,11 +18,11 @@ namespace Presidents2
             Game game = new Game();
             game.AddPlayer("cristian");
             game.AddPlayer("nick");
-            game.Deal();
+            game.StartGame();
             deck.Reset();
             deck.Shuffle();
-            game.pile.Add(deck.TakeCard());
-            game.players[0].CanPlay(game.pile); ;
+            //game.pile.Add(deck.TakeCard());
+            //game.players[0].CanPlay(game.pile); ;
 
         }
 

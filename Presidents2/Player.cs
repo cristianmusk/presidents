@@ -10,7 +10,6 @@ namespace Presidents2
     class Player
     {
         public List<Card> hand;
-        public int tablePosition;
         public String name;
 
 
@@ -20,29 +19,47 @@ namespace Presidents2
             hand = new List<Card>();
         }
 
-        public bool CanPlay(List<Card> pile)
+        public List<Card> FindPlayableCards(Pile pile)
         {
-            //pile Value
-            CardNumber pileCardNumber;
-            foreach (Card c in pile)
-            {
-                if (c.CardNumber != CardNumber.Joker)
-                {
-                    pileCardNumber = c.CardNumber;
-                    break;
-                }
-            }
+
+            int jokerCount = 0;
+            //if there are no cards on the table, all cards are playable.
+            //if (pile.Count().Equals(0))
+            //{
+            //    return hand;
+            //}
+            //else
+            //{
+            //TODO uncomment after debugging
+            //CardNumber pileCardNumber = pile.getCardNumber();
+            //for debugging
+            CardNumber pileCardNumber = CardNumber.Four;
 
             //determine if player has same or equal number of cards (including jokers) with higher value
-            int count = hand.Where(n => n.CardNumber == CardNumber.Joker).Count();
-            //count += hand.Where(n => n.CardNumber > pileCardNumber).GroupBy<n.CardNumber>;
 
-            var query = hand.GroupBy(x => x.CardNumber).Count();
-            return true;
-            //var query = tapesTable.GroupBy(x => x.Tape)
-            //          .Select(x => x.OrderByDescending(t => t.Count)
-            //                        .First());
+            jokerCount = hand.Where(n => n.CardNumber == CardNumber.Joker).Count();
+       
+
+            //
+            var query = from c in hand
+                        where c.CardNumber > pileCardNumber
+                        
+                        select c;
+            
+            
+            
+
+            //find cards where the hand.groupByCount >= pile.Count()-jokerCount 
+            //find playableCards where cardValue > pileCardNumber
+
+
+            return null;
+
+            //}
+
         }
+
+
 
     }
 }
