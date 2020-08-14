@@ -22,7 +22,7 @@ namespace Presidents2
             deck.Reset();
             deck.Shuffle();
             //game.pile.Add(deck.TakeCard());
-            //game.players[0].CanPlay(game.pile); ;
+            //game.players[0].CanPlay(game.pile);
 
         }
 

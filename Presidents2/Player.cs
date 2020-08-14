@@ -24,41 +24,40 @@ namespace Presidents2
 
             int jokerCount = 0;
             //if there are no cards on the table, all cards are playable.
-            //if (pile.Count().Equals(0))
-            //{
-            //    return hand;
-            //}
-            //else
-            //{
-            //TODO uncomment after debugging
-            //CardNumber pileCardNumber = pile.getCardNumber();
-            //for debugging
-            CardNumber pileCardNumber = CardNumber.Four;
+            if (pile.Count().Equals(0))
+            {
+                return hand;
+            }
+            else
+            {
+                //TODO uncomment after debugging
+                CardNumber pileCardNumber = pile.getCardNumber();
+                //for debugging
+                //CardNumber pileCardNumber = CardNumber.Four;
 
-            //determine if player has same or equal number of cards (including jokers) with higher value
+                //determine if player has same or equal number of cards (including jokers) with higher value
+                jokerCount = hand.Where(n => n.CardNumber == CardNumber.Joker).Count();
 
-            jokerCount = hand.Where(n => n.CardNumber == CardNumber.Joker).Count();
-       
 
-            //
-            var query = from c in hand
-                        where c.CardNumber > pileCardNumber
-                        
-                        select c;
+                //find cards which have greater value (CardNumber)
+                var query = from c in hand
+                            where c.CardNumber > pileCardNumber
+
+                            select c;
+
+
+                //further limit playableCards to find cards where the groupBy Count + Joker >= pile.Count()
+
+                return null;
+            }
             
-            
-            
-
-            //find cards where the hand.groupByCount >= pile.Count()-jokerCount 
-            //find playableCards where cardValue > pileCardNumber
-
-
-            return null;
-
-            //}
 
         }
 
+        public void ClearHand()
+        {
+            hand.Clear();      
+        }
 
 
     }

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,16 +11,19 @@ namespace Presidents2
     class Game
     {
         public List<Player> players;
+        public List<Player> nextGamePlayers;
+
         //play pile. reset after each turn
         public Pile pile;
-        public int lastPersonToPlay;
+        public int lastPersonToPlay = -1;
         public int currentPlayerTurn = -1;
         public Deck deck = new Deck();
-
 
         public Game()
         {
             players = new List<Player>();
+            nextGamePlayers = new List<Player>();
+
             pile = new Pile();
 
         }
@@ -39,6 +43,12 @@ namespace Presidents2
             deck.Reset();
             deck.Shuffle();
 
+            //clear hands -- in subsequent games, 1 player would have a remaining hand
+            foreach (Player p in players)
+            {
+                p.ClearHand();
+            }
+
             //last player deals, starting dealing cards to the "left" which would be i=0
             int i = players.Count() - 1;
             while (deck.Cards.Count > 0)
@@ -56,38 +66,61 @@ namespace Presidents2
 
         public void Turn(int i)
         {
+            //if the current player is already out, go to the next player turn
+            if (players[i].hand.Count() == 0) { currentPlayerTurn++; return; }
+
+            string passOrPlay = null;
             //if not empty and pile.cardnumber =0 or 2 (15), skip turn and log message
             if (!pile.Count().Equals(0))
             {
                 if (pile.getCardNumber() == CardNumber.Two || pile.getCardNumber() == CardNumber.Joker)
                 {
                     Console.WriteLine("Pile is a 2, skip turn");
+                    passOrPlay = "Pass";
                 }
             }
+            else
+            {
+                passOrPlay = "Play";
+            }
 
+            //if the turn has gone all the way around, wipe the pile and play
             if (lastPersonToPlay == currentPlayerTurn)
             {
                 pile.WipePile();
             }
 
-                players[i].FindPlayableCards(pile);
-            
-            
-            
-
+            //TODO finish implementation of find playable cards
+            players[i].FindPlayableCards(pile);
 
             //check if user can play
             // Type your username and press enter
-            Console.WriteLine("Type Play or Pass");
-            // Create a string variable and get user input from the keyboard and store it in the variable
-            string playOrPass = Console.ReadLine();
-            if ("Play".Equals(playOrPass))
-            {
 
+            if (!string.IsNullOrEmpty(passOrPlay))
+            {
+                Console.WriteLine("Type 'Pass' or 'Play'");
+                // Create a string variable and get user input from the keyboard and store it in the variable
+                passOrPlay = Console.ReadLine();
+
+            }
+            if ("Play".Equals(passOrPlay))
+            {
+                //TODO 1. user input for playCards - all must be same CardNumbers or Jokers
+                //TODO 2. remove playCards from player hand, and 
+                //TODO 3. put playCards on pile 
+                //pile.PutCards(playCards);
             }
             else
             {
                 //pass, do nothing
+            }
+
+            //if the current player has finished their hand, wipe the pile for the next player
+            if (players[i].hand.Count() == 0)
+            {
+                pile.WipePile();
+                //add the player to the next game list
+                nextGamePlayers.Add(players[i]);
             }
 
             //increment player turn
@@ -100,6 +133,7 @@ namespace Presidents2
             Boolean keepGoing = true;
             while (keepGoing)
             {
+
                 Deal();
                 if (!isFirstGame)
                 {
@@ -108,14 +142,24 @@ namespace Presidents2
                 }
 
                 isFirstGame = false;
+                //sets currentPlayerTurn to player with 3 of clubs
                 Find3Clubs();
-                //currentPlayerTurn is already set to the player with the 3 of clubs
-                Turn(currentPlayerTurn);
+
+                //check if only 1 player remains
+                while (!IsGameFinished())
+                {
+                    Turn(currentPlayerTurn);
+
+                }
+
+                //add last player to nextgamePlayers list and then swap the lists
+                MoveLastPlayer();
+                players = nextGamePlayers;
 
             }
         }
-        //finding the 3 of clubs while deailng
-        private int Find3Clubs()
+
+        private void Find3Clubs()
         {
             int i = 0;
 
@@ -125,17 +169,45 @@ namespace Presidents2
 
                 //check for 3 of clubs here to save off who will start the game, rather than search all players hands later.
                 if (p.hand.Exists(t =>
-    (t.CardNumber == threeOfClubs.CardNumber && t.Suit == threeOfClubs.Suit)))
+                     (t.CardNumber == threeOfClubs.CardNumber && t.Suit == threeOfClubs.Suit)))
                 {
                     currentPlayerTurn = i;
-                    return i;
+                    return;
                 }
                 i++;
 
             }
-            return i;
+            return;
 
         }
+
+        private bool IsGameFinished()
+        {
+            int i = 0;
+            foreach (Player p in players)
+            {
+                if (p.hand.Count() != 0) { i++; }
+
+            }
+
+            //as long as there are 2 players, keep going
+            if (i > 1) { return true; } else { return false; }
+
+        }
+
+        private void MoveLastPlayer()
+        {
+
+            foreach (Player p in players)
+            {
+                if (p.hand.Count() != 0)
+                {
+                    nextGamePlayers.Add(p);
+                }
+            }
+            return;
+        }
+
     }
 
 }
