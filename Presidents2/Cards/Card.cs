@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Net.NetworkInformation;
 
 namespace Cards.Domain.Standard
 {
@@ -7,6 +6,7 @@ namespace Cards.Domain.Standard
     {
         public Suit Suit { get; set; }
         public CardNumber CardNumber { get; set; }
+
         public override String ToString()
         {
             return CardNumber + " of " + Suit;
@@ -14,15 +14,16 @@ namespace Cards.Domain.Standard
 
         public Card()
         {
-
         }
 
         public Card(CardNumber cn, Suit s)
         {
-
             CardNumber = cn;
             Suit = s;
+        }
 
+        public Card(string cn)
+        {
         }
 
         public static bool operator ==(Card c1, Card c2)

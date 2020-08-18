@@ -3,27 +3,17 @@ using System;
 
 namespace Presidents2
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-
             Console.WriteLine("Starting the program");
-            Deck deck = new Deck();
-            var p = new Program();
-            //p.DealAllCards(deck);
-
-            deck.Reset();
 
             Game game = new Game();
-            game.AddPlayer("cristian");
-            game.AddPlayer("nick");
+            //game.AddPlayer("CRISTIAN");
+            //game.AddPlayer("NICK");
+            //game.AddPlayer("JOSH");
             game.StartGame();
-            deck.Reset();
-            deck.Shuffle();
-            //game.pile.Add(deck.TakeCard());
-            //game.players[0].CanPlay(game.pile);
-
         }
 
         public void DealAllCardsToTable(Deck deck)
@@ -34,7 +24,6 @@ namespace Presidents2
             {
                 card = (Card)deck.TakeCard();
                 Console.WriteLine(card.ToString());
-
             }
             Console.WriteLine("end of dealing");
         }

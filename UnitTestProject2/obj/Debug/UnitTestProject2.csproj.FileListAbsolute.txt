@@ -1,0 +1,17 @@
+C:\Users\crist\OneDrive\Documents\GitHub\presidents\UnitTestProject2\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\crist\OneDrive\Documents\GitHub\presidents\UnitTestProject2\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\crist\OneDrive\Documents\GitHub\presidents\UnitTestProject2\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\crist\OneDrive\Documents\GitHub\presidents\UnitTestProject2\bin\Debug\UnitTestProject2.dll
+C:\Users\crist\OneDrive\Documents\GitHub\presidents\UnitTestProject2\bin\Debug\UnitTestProject2.pdb
+C:\Users\crist\OneDrive\Documents\GitHub\presidents\UnitTestProject2\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\crist\OneDrive\Documents\GitHub\presidents\UnitTestProject2\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\crist\OneDrive\Documents\GitHub\presidents\UnitTestProject2\bin\Debug\Presidents2.exe
+C:\Users\crist\OneDrive\Documents\GitHub\presidents\UnitTestProject2\bin\Debug\Presidents2.pdb
+C:\Users\crist\OneDrive\Documents\GitHub\presidents\UnitTestProject2\bin\Debug\Presidents2.exe.config
+C:\Users\crist\OneDrive\Documents\GitHub\presidents\UnitTestProject2\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\crist\OneDrive\Documents\GitHub\presidents\UnitTestProject2\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\crist\OneDrive\Documents\GitHub\presidents\UnitTestProject2\obj\Debug\UnitTestProject2.csprojAssemblyReference.cache
+C:\Users\crist\OneDrive\Documents\GitHub\presidents\UnitTestProject2\obj\Debug\UnitTestProject2.csproj.CoreCompileInputs.cache
+C:\Users\crist\OneDrive\Documents\GitHub\presidents\UnitTestProject2\obj\Debug\UnitTestProject2.csproj.CopyComplete
+C:\Users\crist\OneDrive\Documents\GitHub\presidents\UnitTestProject2\obj\Debug\UnitTestProject2.dll
+C:\Users\crist\OneDrive\Documents\GitHub\presidents\UnitTestProject2\obj\Debug\UnitTestProject2.pdb

@@ -1,0 +1,7 @@
+C:\Users\crist\OneDrive\Documents\GitHub\presidents\Presidents2\bin\Release\Presidents2.exe.config
+C:\Users\crist\OneDrive\Documents\GitHub\presidents\Presidents2\bin\Release\Presidents2.exe
+C:\Users\crist\OneDrive\Documents\GitHub\presidents\Presidents2\bin\Release\Presidents2.pdb
+C:\Users\crist\OneDrive\Documents\GitHub\presidents\Presidents2\obj\Release\Presidents2.csprojAssemblyReference.cache
+C:\Users\crist\OneDrive\Documents\GitHub\presidents\Presidents2\obj\Release\Presidents2.csproj.CoreCompileInputs.cache
+C:\Users\crist\OneDrive\Documents\GitHub\presidents\Presidents2\obj\Release\Presidents2.exe
+C:\Users\crist\OneDrive\Documents\GitHub\presidents\Presidents2\obj\Release\Presidents2.pdb

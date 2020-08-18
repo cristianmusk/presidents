@@ -28,9 +28,9 @@ namespace Cards.Domain.Standard
                    .ToList();
 
             //add 2 jokers
-            Card jokercard1 = new Card() { CardNumber = 0, Suit = Suit.Heart};
+            Card jokercard1 = new Card() { CardNumber = 0, Suit = Suit.Heart };
             Cards.Add(jokercard1);
-            Card jokercard2 = new Card() { CardNumber = 0, Suit = Suit.Diamond};
+            Card jokercard2 = new Card() { CardNumber = 0, Suit = Suit.Diamond };
             Cards.Add(jokercard2);
         }
 
@@ -56,6 +56,23 @@ namespace Cards.Domain.Standard
             Cards.RemoveAll(takeCards.Contains);
 
             return takeCards;
+        }
+
+        public void ShowCardOptions()
+        {
+            Console.WriteLine("CARD OPTIONS");
+            foreach (int i in Enum.GetValues(typeof(CardNumber)))
+            {
+                Console.WriteLine($" {i}: " + $"{Enum.GetName(typeof(CardNumber), i)}");
+            }
+            Console.WriteLine("3C: Three of Club");
+        }
+
+        public Card GetCardByIndex(int i)
+        {
+            Card c = new Card();
+            c = Cards[i];
+            return c;
         }
     }
 }
